@@ -1,9 +1,11 @@
 version: '3'
+
 services:
   php-apache:
-    container_name: PHP-Apache
-    image: php
+    container_name: PHP
+    image: php:8-cli
     volumes:
-      - ./:/var/www/html/
+      - ./:/app
     ports:
-      - 80:80
+      - 8000:8000
+    command: php -S 0.0.0.0:8000 -t /app
